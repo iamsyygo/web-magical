@@ -1,6 +1,6 @@
 import { createUnitiveIcon } from '@/utils/icon';
 import type { MenuProps } from 'antd';
-import { Avatar, Dropdown, Layout, Menu, theme } from 'antd';
+import { Avatar, Breadcrumb, Dropdown, Layout, Menu, Segmented, theme } from 'antd';
 import React from 'react';
 import { useState, createElement } from 'react';
 
@@ -11,7 +11,6 @@ const dropdownItems: MenuProps['items'] = [
     key: '1',
     label: 'Magical',
     icon: createUnitiveIcon('i-solar-user-bold-duotone', 14),
-    disabled: true,
   },
   { type: 'divider' },
   {
@@ -48,8 +47,8 @@ const AdminLayout: React.FC<{
   const { colorBgContainer, borderRadiusLG } = token;
   const themeIcon = isDark ? 'moon-stars-bold' : 'i-solar-sun-2-bold';
   const collapIcon = collapsed
-    ? 'i-solar-round-double-alt-arrow-right-bold-duotone'
-    : 'i-solar-round-double-alt-arrow-left-bold-duotone';
+    ? 'i-solar-round-double-alt-arrow-right-bold'
+    : 'i-solar-round-double-alt-arrow-left-bold';
 
   return (
     <Layout style={{ height: '100%' }}>
@@ -85,7 +84,27 @@ const AdminLayout: React.FC<{
           ></i>
         </Sider>
 
-        <Layout className="p-10px">
+        <Layout className="p-10px pt-0">
+          <Breadcrumb
+            items={[
+              {
+                href: '',
+                title: createUnitiveIcon('i-solar-user-bold-duotone', 14),
+              },
+              {
+                href: '',
+                title: (
+                  <>
+                    {createUnitiveIcon('i-solar-user-bold-duotone', 14)}
+                    <span>Application List</span>
+                  </>
+                ),
+              },
+              {
+                title: 'Application',
+              },
+            ]}
+          />
           <Content
             className="p-8px m-0"
             style={{

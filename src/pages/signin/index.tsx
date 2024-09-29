@@ -28,7 +28,7 @@ const SignIn: React.FC = () => {
         <Form
           name="basic"
           labelCol={{ span: 24 }}
-          wrapperCol={{ span: 16 }}
+          wrapperCol={{ span: 24 }}
           initialValues={{ remember: true }}
           layout="vertical"
           onFinish={onFinish}
@@ -39,9 +39,8 @@ const SignIn: React.FC = () => {
           <Form.Item<FieldType>
             label="Username"
             name="username"
-            help={<div className="text-10px color-red">请输入用户名！</div>}
             wrapperCol={{ span: 24 }}
-            rules={[{ required: true, message: '请输入用户名！' }]}
+            rules={[{ required: true, message: <div className="text-10px color-red">请输入用户名！</div> }]}
           >
             <Input />
           </Form.Item>
@@ -49,8 +48,7 @@ const SignIn: React.FC = () => {
           <Form.Item<FieldType>
             label="Password"
             name="password"
-            help={<div className="text-10px color-red">请输入密码！</div>}
-            rules={[{ required: true, message: '请输入密码！' }]}
+            rules={[{ required: true, message: <div className="text-10px color-red">请输入密码！</div> }]}
             wrapperCol={{ span: 24 }}
           >
             <Input.Password />

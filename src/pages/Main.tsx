@@ -5,7 +5,7 @@ import { createUnitiveIcon } from '@/utils/icon';
 const items = [
   {
     key: 'system',
-    icon: createUnitiveIcon('i-solar-4k-bold-duotone'),
+    icon: createUnitiveIcon('i-solar-box-minimalistic-outline'),
     label: '系统管理',
     children: [
       { key: 'system-user', label: '用户管理' },
@@ -15,8 +15,8 @@ const items = [
   },
   {
     key: 'content',
-    icon: createUnitiveIcon('i-solar-4k-bold-duotone'),
     label: '内容管理',
+    icon: createUnitiveIcon('i-solar-book-2-linear'),
     children: [
       { key: 'content-article', label: '文章管理' },
       { key: 'content-category', label: '分类管理' },
@@ -25,11 +25,15 @@ const items = [
   },
   {
     key: 'settings',
-    icon: createUnitiveIcon('i-solar-4k-bold-duotone'),
+    icon: createUnitiveIcon('i-solar-settings-minimalistic-line-duotone'),
     label: '设置',
     children: [
-      { key: 'settings-profile', label: '个人设置' },
-      { key: 'settings-security', label: '安全设置' },
+      { key: 'settings-profile', label: '个人设置', icon: createUnitiveIcon('i-solar-user-broken') },
+      {
+        key: 'settings-security',
+        label: '安全设置',
+        icon: createUnitiveIcon('i-solar-user-check-rounded-line-duotone'),
+      },
     ],
   },
 ];
