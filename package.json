@@ -1,5 +1,5 @@
 {
-  "name": "magical",
+  "name": "web-magical",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "allotment": "^1.20.2",
     "antd": "^5.21.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
@@ -17,6 +18,7 @@
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@iconify-json/solar": "^1.2.0",
+    "@types/node": "^22.7.4",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@unocss/preset-icons": "^0.63.1",

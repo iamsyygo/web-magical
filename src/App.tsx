@@ -1,18 +1,31 @@
-import { ConfigProvider } from 'antd';
+import type { MappingAlgorithm } from 'antd';
+import { ConfigProvider, theme } from 'antd';
+import { useState } from 'react';
+import Main from './pages/Main';
 
 function App() {
+  const [isDark, setIsDark] = useState(false);
+  let algorithm: MappingAlgorithm[] = [theme.compactAlgorithm];
+  function switchAppearance() {
+    // const isDarkModeEnabled = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setIsDark(!isDark);
+    if (isDark) {
+      algorithm.push(theme.darkAlgorithm);
+    } else {
+      algorithm = algorithm.filter((item) => item !== theme.darkAlgorithm);
+    }
+  }
+
   return (
     <ConfigProvider
       theme={{
-        token: {
-          // Seed Token，影响范围大
-          // colorPrimary: '#00b96b',
-          // borderRadius: 2,
-          // 派生变量，影响范围小
-          // colorBgContainer: '#f6ffed',
-        },
+        token: {},
+        cssVar: true,
+        algorithm,
       }}
-    ></ConfigProvider>
+    >
+      <Main switchAppearance={switchAppearance} isDark={isDark} />
+    </ConfigProvider>
   );
 }
 
