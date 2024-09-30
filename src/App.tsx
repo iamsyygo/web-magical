@@ -1,20 +1,10 @@
-import type { MappingAlgorithm } from 'antd';
 import { ConfigProvider, theme } from 'antd';
-import { useState } from 'react';
-import Main from './pages/Main';
+import type { MappingAlgorithm } from 'antd';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
-  let algorithm: MappingAlgorithm[] = [theme.compactAlgorithm];
-  function switchAppearance() {
-    // const isDarkModeEnabled = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setIsDark(!isDark);
-    if (isDark) {
-      algorithm.push(theme.darkAlgorithm);
-    } else {
-      algorithm = algorithm.filter((item) => item !== theme.darkAlgorithm);
-    }
-  }
+  const algorithm: MappingAlgorithm[] = [theme.compactAlgorithm];
 
   return (
     <ConfigProvider
@@ -24,7 +14,9 @@ function App() {
         algorithm,
       }}
     >
-      <Main switchAppearance={switchAppearance} isDark={isDark} />
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </ConfigProvider>
   );
 }
