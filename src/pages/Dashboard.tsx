@@ -66,6 +66,7 @@ const Dashboard: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.3 }}
+            className="h-full w-full"
           >
             <Outlet key={location.pathname} />
           </motion.div>

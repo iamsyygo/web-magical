@@ -55,6 +55,17 @@ function findMenuItem(items: MenuItemsType, key: string): MenuItemType | undefin
   });
 }
 
+function handleMenuIcon(menus: MenuItemType[] = []) {
+  return menus.map((value) => {
+    const item = { ...value, icon: createUnitiveIcon(value.icon!) };
+    if (value.children) {
+      // @ts-expect-error
+      item.children = handleMenuIcon(item.children!);
+    }
+    return item;
+  });
+}
+
 export const AppLayout: React.FC<{
   children?: React.ReactNode;
   menuItems?: MenuItemsType;
@@ -122,11 +133,7 @@ export const AppLayout: React.FC<{
             />
             <Menu
               className="border-r-0 select-none bg-transparent flex-shrink-0 flex-1"
-              items={menuItems}
-              itemIcon={(props) => {
-                console.log(props, 'propspropspropsprops');
-                return createUnitiveIcon('i-solar-settings-minimalistic-line-duotone', 16);
-              }}
+              items={handleMenuIcon(menuItems)}
               mode="inline"
               onClick={handleMenuclick}
             />
@@ -152,34 +159,6 @@ export const AppLayout: React.FC<{
                   </div>
                 ),
               },
-              // {
-              //   href: '',
-              //   title: (
-              //     <div className="flex items-center gap-3px h-full">
-              //       {createUnitiveIcon('i-solar-user-bold-duotone', 12)}
-              //       <span>系统管理</span>
-              //     </div>
-              //   ),
-              // },
-              // {
-              //   href: '',
-              //   title: (
-              //     <div className="flex items-center gap-3px h-full">
-              //       {createUnitiveIcon('i-solar-book-2-linear', 12)}
-              //       <span>内容管理</span>
-              //     </div>
-              //   ),
-              // },
-              // {
-              //   href: '',
-              //   title: (
-              //     <div className="flex items-center gap-3px h-full">
-              //       {createUnitiveIcon('i-solar-settings-minimalistic-line-duotone', 12)}
-              //       <span>设置</span>
-              //     </div>
-              //   ),
-              // },
-
               ...breadcrumbs.map((item) => ({
                 href: '',
                 title: (
