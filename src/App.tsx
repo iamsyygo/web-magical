@@ -14,6 +14,7 @@ function App() {
         headerBg: 'hsl(220 14.3% 95.9%)',
         headerSplitColor: 'hsl(216 12.2% 83.9%)',
         headerBorderRadius: 8,
+        rowHoverBg: 'rgba(254,244,236,0.5)',
       },
     },
   };

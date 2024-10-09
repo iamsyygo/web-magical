@@ -136,22 +136,22 @@ const Setting: React.FC = () => {
     <div>
       <Row gutter={16}>
         <Col span={6}>
-          <Form.Item label="姓名" labelCol={{ span: 6 }} wrapperCol={{ span: 18 }}>
+          <Form.Item label="姓名">
             <Input placeholder="搜索姓名" value={searchName} onChange={handleSearchName} />
           </Form.Item>
         </Col>
         <Col span={6}>
-          <Form.Item label="年龄" labelCol={{ span: 6 }} wrapperCol={{ span: 18 }}>
+          <Form.Item label="年龄">
             <Input placeholder="搜索年龄" value={searchAge} onChange={handleSearchAge} />
           </Form.Item>
         </Col>
         <Col span={6}>
-          <Form.Item label="地址" labelCol={{ span: 6 }} wrapperCol={{ span: 18 }}>
+          <Form.Item label="地址">
             <Input placeholder="搜索地址" value={searchAddress} onChange={handleSearchAddress} />
           </Form.Item>
         </Col>
         <Col span={6}>
-          <Button type="primary" onClick={handleSearch} style={{ marginRight: 8 }}>
+          <Button type="primary" onClick={handleSearch} className="mb-8px">
             查询
           </Button>
           <Button onClick={handleReset}>重置</Button>

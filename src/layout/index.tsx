@@ -43,16 +43,18 @@ const dropdownItems: MenuProps['items'] = [
   },
 ];
 function findMenuItem(items: MenuItemsType, key: string): MenuItemType | undefined {
-  return items.find((item) => {
-    if (!item) return false;
+  for (const item of items) {
+    if (!item) continue;
     if (item.key === key) {
-      return true;
+      return item;
     }
     if (item.children) {
-      return findMenuItem(item.children as MenuItemsType, key);
+      const found = findMenuItem(item.children as MenuItemsType, key);
+      if (found) {
+        return found;
+      }
     }
-    return false;
-  });
+  }
 }
 
 function handleMenuIcon(menus: MenuItemType[] = []) {
